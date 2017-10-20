@@ -15,9 +15,17 @@ class Expense (models.Model):
     amount = models.BigIntegerField()
     user = models.ForeignKey(User)
 
+    def __unicode__(self):
+
+        return '{} - {}'.format(self.text , self.date)
+
 class Income (models.Model):
 
     user = models.ForeignKey(User)
     date = models.DateField()
     text = models.CharField(max_length=255)
     amount  = models.BigIntegerField()
+
+    def __unicode__(self):
+
+        return '{} - {}'.format(self.text , self.date)
